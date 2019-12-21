@@ -1,10 +1,9 @@
 package com.angular.support.controller;
 
 import com.angular.support.model.Student;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,9 +23,16 @@ public class StudentController {
             )
     );
 
-    @RequestMapping("student/list")
+    @RequestMapping("student/get/list")
     List<Student> showAll(){
         return list;
+    }
+
+    @PostMapping("student/delete/list")
+    public int deleteAll(@Valid @RequestBody List<Integer> list)
+        {
+            System.out.println(" list size "  + list.size());
+        return list.size();
     }
 
 }
