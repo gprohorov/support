@@ -23,7 +23,9 @@ public class StudentController {
                     new Student(4,"George", LocalDateTime.now(), 78),
                     new Student(5,"Freddy", LocalDateTime.now(), 58),
                     new Student(6,"Brian", LocalDateTime.now(), 80),
-                    new Student(7,"Roger", LocalDateTime.now(), 94)
+                    new Student(7,"Mik", LocalDateTime.now(), 58),
+                    new Student(8,"David", LocalDateTime.now(), 80),
+                    new Student(9,"Roger", LocalDateTime.now(), 94)
             )
     );
 
@@ -42,6 +44,7 @@ public class StudentController {
     @RequestMapping("student/get/list/{from}/{amount}")
     List<Student> showPage(@PathVariable("from") int from, @PathVariable("amount") int amount)
     {
+         if(from + amount> list.size()) amount = list.size() - from -1;
        // List<Student>  page = list.stream().filter(student -> student.)
         return list.subList(from, from + amount);
     }
