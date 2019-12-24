@@ -41,6 +41,12 @@ public class StudentController {
         return list.size();
     }
 
+    @PostMapping("student/add")
+    public void add(@Valid @RequestBody Student student)
+    {
+        list.add(student);
+    }
+
     @RequestMapping("student/get/list/{from}/{amount}")
     List<Student> showPage(@PathVariable("from") int from, @PathVariable("amount") int amount)
     {

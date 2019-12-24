@@ -5,13 +5,13 @@ import java.time.LocalDateTime;
 public class Student {
     private int id;
     private String name;
-    private LocalDateTime date;
+    private LocalDateTime dateOfBirth;
     private  int mark;
 
     public Student(int id, String name, LocalDateTime date, int mark) {
         this.id = id;
         this.name = name;
-        this.date = date;
+        this.dateOfBirth = date;
         this.mark = mark;
     }
 
@@ -32,11 +32,11 @@ public class Student {
     }
 
     public LocalDateTime getDate() {
-        return date;
+        return dateOfBirth;
     }
 
     public void setDate(LocalDateTime date) {
-        this.date = date;
+        this.dateOfBirth = date;
     }
 
     public int getMark() {
