@@ -4,7 +4,7 @@ import com.angular.support.model.Student;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,15 +17,15 @@ public class StudentController {
 
             Arrays.asList(
 
-                    new Student(1,"John", LocalDateTime.now(), 77),
-                    new Student(2,"Paul", LocalDateTime.now(), 88),
-                    new Student(3,"Ringo", LocalDateTime.now(), 57),
-                    new Student(4,"George", LocalDateTime.now(), 78),
-                    new Student(5,"Freddy", LocalDateTime.now(), 58),
-                    new Student(6,"Brian", LocalDateTime.now(), 80),
-                    new Student(7,"Mik", LocalDateTime.now(), 58),
-                    new Student(8,"David", LocalDateTime.now(), 80),
-                    new Student(9,"Roger", LocalDateTime.now(), 94)
+                    new Student(1,"John", LocalDate.now(), 77),
+                    new Student(2,"Paul", LocalDate.now(), 88),
+/*                    new Student(3,"Ringo", LocalDate.now(), 57),
+                    new Student(4,"George", LocalDate.now(), 78),
+                    new Student(5,"Freddy", LocalDate.now(), 58),
+                    new Student(6,"Brian", LocalDate.now(), 80),
+                    new Student(7,"Mik", LocalDate.now(), 58),
+                    new Student(8,"David", LocalDate.now(), 80),*/
+                    new Student(9,"Roger", LocalDate.now(), 94)
             )
     );
 
@@ -44,6 +44,8 @@ public class StudentController {
     @PostMapping("student/add")
     public void add(@Valid @RequestBody Student student)
     {
+        System.out.println("----------------------");
+        System.out.println(student);
         list.add(student);
     }
 
